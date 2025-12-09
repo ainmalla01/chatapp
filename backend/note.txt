@@ -1,0 +1,8 @@
+add package modifie:
+we will add  (--watch  for update auto when  we chaneg on code ) 
+    "dev": "node --watch server.js"
+
+otherway is nodemon
+install nodemon to run ..it work as the --watch
+    "dev": "nodemon server.js"
+
