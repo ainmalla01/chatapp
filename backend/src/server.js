@@ -2,8 +2,13 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import dotenv from 'dotenv';
-import authRoutes from './routes/auth.routes.js'
-import messageRoutes from './routes/message.routes.js'
+import authRoutes from './routes/auth.routes.js';
+import messageRoutes from './routes/message.routes.js';
+import connectDb from './config/db.js';
+import cookieParser from "cookie-parser";
+
+// to use cookie function
+app.use(cookieParser());
 
 
 dotenv.config();
@@ -13,6 +18,7 @@ const Port=process.env.PORT||3000;
 // middleware
 app.use(express.json());
 app.use(cors());
+
 // for developyment
 const __dirname=path.resolve();
 
@@ -29,7 +35,8 @@ app.get((req, res) => {
 
 }
     
-
+// running server
 app.listen(Port,()=>{
     console.log(`server is running now at  ${Port}`);
+    connectDb();
 })
